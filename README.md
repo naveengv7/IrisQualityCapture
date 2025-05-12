@@ -1,6 +1,6 @@
 # IrisQualityCapture
 
-An Android app for **biometric iris image capture**, featuring:
+An Android app for **biometric visible light iris image capture**, featuring:
 - Real-time **MediaPipe face mesh detection**
 - Accurate **Camera2 autofocus and region-of-interest targeting**
 - **OpenCV quality evaluation** for dataset-grade image filtering
@@ -15,7 +15,7 @@ An Android app for **biometric iris image capture**, featuring:
 - 📸 Camera2 + OpenCV + MediaPipe pipeline
 - 👁️ Detects left and right eye landmarks in real-time
 - 🎯 Locks focus on eye region before capture
-- 💡 Constant flashlight (torch) mode to avoid flicker
+- 💡 Flashlight (torch) mode
 - ✅ Image quality evaluation (ISO/IEC 29794-6 inspired)
 - 📝 Dataset-friendly file naming:
 ```
@@ -72,11 +72,23 @@ implementation 'com.google.mediapipe:tasks-vision:latest-version'
 ```
 👉 replace `latest-version` with the current stable version.
 
-### 5️⃣ Replace quality server URL
-In `MainActivity3.java`, set your real server:
+### 5️⃣ Set up and connect to BIQT Iris Quality Evaluation Server
+
+This app uses the [MITRE BIQT Iris Server](https://github.com/mitre/biqt-iris) for automatic quality scoring.
+
+a) Start the server locally
+b) Run the server
+c) Update your Android app with server address
+In `MainActivity3.java`, set the server URL:
 ```java
-String serverUrl = "https://your-server-url/analyze_iris";
+String serverUrl = "http://<your-server-ip>:5000/";
 ```
+👉 The app will automatically send cropped eye images to this server for evaluation.  
+👉 Only images passing quality thresholds will be saved locally.
+
+#### ⚠️ Note:
+The app requires the server to be running for image evaluation.  
+If no server is available, images will not be evaluated or saved.
 
 ### 6️⃣ Build + Run
 - Connect Android device via USB
@@ -109,7 +121,7 @@ String serverUrl = "https://your-server-url/analyze_iris";
 |-------|-----------|
 | Overall Quality | ≥ 50 |
 | Sharpness | ≥ 70 |
-| Others | optional (disabled by default) |
+| Others | optional (commented by default) |
 
 👉 Only images meeting all thresholds will be saved.
 
