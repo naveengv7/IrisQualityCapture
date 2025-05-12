@@ -4,6 +4,7 @@ An Android app for **biometric visible light iris image capture**, featuring:
 - Real-time **MediaPipe face mesh detection**
 - Accurate **Camera2 autofocus and region-of-interest targeting**
 - **OpenCV quality evaluation** for dataset-grade image filtering
+- **ISO/IEC 29794-6 image quality evaluation** for high quality Iris capture
 - **Stable flashlight (torch) control** for uniform eye illumination
 - Automated file naming and dataset generation
 - Designed for **biometric dataset collection and research**
