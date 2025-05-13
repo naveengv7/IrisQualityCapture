@@ -1,0 +1,17 @@
+{
+  "installationFolder": "C:\\Users\\MA\\Desktop\\visiris\\RawImageCapture-psvl\\opencv10\\build\\intermediates\\prefab_package\\release\\prefab",
+  "gradlePath": ":opencv10",
+  "packageInfo": {
+    "packageName": "opencv10",
+    "packageSchemaVersion": 2,
+    "packageDependencies": [],
+    "modules": [
+      {
+        "moduleName": "opencv_jni_shared",
+        "moduleHeaders": "C:\\Users\\MA\\Desktop\\visiris\\RawImageCapture-psvl\\opencv10\\native\\jni\\include",
+        "moduleExportLibraries": [],
+        "abis": []
+      }
+    ]
+  }
+}

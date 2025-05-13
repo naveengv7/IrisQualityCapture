@@ -1,0 +1,2 @@
+ninja: Entering directory `C:\Users\MA\Desktop\visiris\RawImageCapture-psvl\opencv\.cxx\Debug\5p5v3h2o\arm64-v8a'
+ninja: no work to do.
