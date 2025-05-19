@@ -66,7 +66,7 @@ public class MainActivity3 extends AppCompatActivity implements ImageReader.OnIm
     private boolean faceCurrentlyVisible = false;
     private int missingFaceFrameCount = 0;
     private static final int FACE_MISSING_FRAME_THRESHOLD = 5;  // Adjust as needed
-    private FaceLandmarker faceLandmarkerCapture;  // 🚀 NEW for high-res images
+    private FaceLandmarker faceLandmarkerCapture;
     private int leftEyeImageCount = 0;
     private int rightEyeImageCount = 0;
     private String subjectID;
@@ -203,7 +203,7 @@ public class MainActivity3 extends AppCompatActivity implements ImageReader.OnIm
         String serverUrl = "https://ff86-2603-7081-c00-64-1ccb-c246-a0b0-6650.ngrok-free.app/analyze_iris";
 
         String eyeSide = imageLabel.contains("left") ? "left" : "right";
-        String filename = buildFilename(eyeSide, 0);    // ✅ base image filename
+        String filename = buildFilename(eyeSide, 0);  
 
         File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         if (!downloadsDir.exists()) downloadsDir.mkdirs();
@@ -222,15 +222,15 @@ public class MainActivity3 extends AppCompatActivity implements ImageReader.OnIm
 
         Map<String, Float> thresholds = new HashMap<>();
         thresholds.put("iso_overall_quality", 30f);
-        //thresholds.put("iso_greyscale_utilization", 6f);
-        //thresholds.put("iso_iris_pupil_concentricity", 90f);
-        //thresholds.put("iso_iris_pupil_contrast", 30f);
-        //thresholds.put("iso_iris_pupil_ratio", 20f);
-        //thresholds.put("iso_iris_sclera_contrast", 5f);
-        //thresholds.put("iso_margin_adequacy", 80f);
-        //thresholds.put("iso_pupil_boundary_circularity", 70f);
-        //thresholds.put("iso_sharpness", 80f);
-        //thresholds.put("iso_usable_iris_area", 70f);
+        thresholds.put("iso_greyscale_utilization", 6f);
+        thresholds.put("iso_iris_pupil_concentricity", 90f);
+        thresholds.put("iso_iris_pupil_contrast", 30f);
+        thresholds.put("iso_iris_pupil_ratio", 20f);
+        thresholds.put("iso_iris_sclera_contrast", 5f);
+        thresholds.put("iso_margin_adequacy", 80f);
+        thresholds.put("iso_pupil_boundary_circularity", 70f);
+        thresholds.put("iso_sharpness", 80f);
+        thresholds.put("iso_usable_iris_area", 70f);
 
         BIQTClient.sendImageFileToBIQTServer(MainActivity3.this, imageFile, serverUrl, new BIQTClient.BIQTCallback() {
             @Override
@@ -255,7 +255,7 @@ public class MainActivity3 extends AppCompatActivity implements ImageReader.OnIm
 
                             Bitmap variantCrop = Bitmap.createBitmap(cropBitmap, x, y, originalCropSize, originalCropSize);
 
-                            String variantFilename = buildFilename(eyeSide, i);    // ✅ consistent variant naming
+                            String variantFilename = buildFilename(eyeSide, i); 
                             File variantFile = new File(downloadsDir, variantFilename);
 
                             try {
@@ -551,7 +551,6 @@ public class MainActivity3 extends AppCompatActivity implements ImageReader.OnIm
         final int cropWidth = 300;
         final int cropHeight = 300;
 
-        // ✅ optional slight shift for left eye to improve pass rate
         if ("left".equals(eyeSide)) {
             center.x -= 5f;
         }
