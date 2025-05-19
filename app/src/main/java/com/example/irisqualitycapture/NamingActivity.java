@@ -1,4 +1,3 @@
-// ✅ Cleaned NamingActivity.java
 package com.example.irisqualitycapture;
 
 import android.app.Activity;
@@ -30,7 +29,7 @@ public class NamingActivity extends Activity {
         int height = displayMetrics.heightPixels;
         int width = displayMetrics.widthPixels;
 
-        Log.d(TAG, "###########height:" + height + " Width" + width);
+        //Log.d(TAG, "###########height:" + height + " Width" + width);
 
         setContentView(R.layout.naming);
 
