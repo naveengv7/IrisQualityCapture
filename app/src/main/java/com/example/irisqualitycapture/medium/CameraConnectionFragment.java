@@ -245,7 +245,7 @@ public class CameraConnectionFragment extends Fragment {
                     if (afState != null &&
                             (afState == CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED ||
                                     afState == CaptureResult.CONTROL_AF_STATE_PASSIVE_FOCUSED)) {
-                        captureStillPicture();    // 🔥 fire capture as soon as lock is done
+                        captureStillPicture();    // fire capture as soon as lock is done
                     }
                 }
             }, backgroundHandler);
